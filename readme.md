@@ -454,3 +454,216 @@ Please read CONTRIBUTING.md for details on our code of conduct and the process f
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
 ## Project Folder Structure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+``` 
+ai-virtual-assistant/
+│
+├── backend/ # FastAPI backend application
+│ ├── app/ # Main application package
+│ │ ├── api/ # API endpoints
+│ │ │ ├── init.py
+│ │ │ ├── auth.py # Authentication routes
+│ │ │ ├── chat.py # Chat interface endpoints
+│ │ │ ├── github.py # GitHub integration endpoints
+│ │ │ ├── tasks.py # Task management endpoints
+│ │ │ └── analytics.py # Analytics and reporting endpoints
+│ │ │
+│ │ ├── core/ # Core application components
+│ │ │ ├── init.py
+│ │ │ ├── config.py # Configuration settings
+│ │ │ ├── security.py # Security utilities
+│ │ │ └── dependencies.py # FastAPI dependencies
+│ │ │
+│ │ ├── models/ # Database models
+│ │ │ ├── init.py
+│ │ │ ├── user.py # User model
+│ │ │ ├── task.py # Task model
+│ │ │ ├── chat.py # Chat message model
+│ │ │ └── analytics.py # Analytics model
+│ │ │
+│ │ ├── services/ # Business logic services
+│ │ │ ├── init.py
+│ │ │ ├── task_service.py # Task management service
+│ │ │ │ ├── task_assignment_engine.py
+│ │ │ │ ├── task_progress_tracker.py
+│ │ │ │ ├── deadline_manager.py
+│ │ │ │ └── priority_handler.py
+│ │ │ │
+│ │ │ ├── chat_service.py # Chat interface service
+│ │ │ │ ├── chat_engine.py
+│ │ │ │ ├── context_manager.py
+│ │ │ │ ├── response_generator.py
+│ │ │ │ └── knowledge_base.py
+│ │ │ │
+│ │ │ ├── github_service.py # GitHub integration service
+│ │ │ │ ├── github_connector.py
+│ │ │ │ ├── pr_analyzer.py
+│ │ │ │ ├── issue_tracker.py
+│ │ │ │ └── code_reviewer.py
+│ │ │ │
+│ │ │ ├── collaboration_service.py # Team collaboration service
+│ │ │ │ ├── team_activity_monitor.py
+│ │ │ │ ├── collaboration_analyzer.py
+│ │ │ │ ├── notification_system.py
+│ │ │ │ └── meeting_scheduler.py
+│ │ │ │
+│ │ │ └── analytics_service.py # Analytics service
+│ │ │ ├── data_collector.py
+│ │ │ ├── analytics_engine.py
+│ │ │ ├── report_generator.py
+│ │ │ └── insight_provider.py
+│ │ │
+│ │ ├── utils/ # Utility functions
+│ │ │ ├── init.py
+│ │ │ ├── ai_utils.py # AI/ML utility functions
+│ │ │ ├── github_utils.py # GitHub API utilities
+│ │ │ └── logging.py # Logging utilities
+│ │ │
+│ │ ├── ai/ # AI model components
+│ │ │ ├── init.py
+│ │ │ ├── llm_connector.py # LLM API connection
+│ │ │ ├── task_predictor.py # ML model for task assignment
+│ │ │ └── code_analyzer.py # Code analysis models
+│ │ │
+│ │ └── main.py # FastAPI application entry point
+│ │
+│ ├── alembic/ # Database migration tool
+│ │ ├── versions/ # Migration versions
+│ │ └── alembic.ini # Alembic configuration
+│ │
+│ ├── tests/ # Backend tests
+│ │ ├── init.py
+│ │ ├── conftest.py # Test configuration
+│ │ ├── test_api/ # API tests
+│ │ └── test_services/ # Service tests
+│ │
+│ ├── pyproject.toml # Poetry dependencies
+│ ├── requirements.txt # Python dependencies
+│ ├── Dockerfile # Backend Docker configuration
+│ └── .env.example # Environment variables example
+│
+├── frontend/ # Next.js frontend application
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ │ ├── common/ # Common UI components
+│ │ │ │ ├── Button.tsx
+│ │ │ │ ├── Input.tsx
+│ │ │ │ └── Card.tsx
+│ │ │ │
+│ │ │ ├── chat/ # Chat interface components
+│ │ │ │ ├── ChatBox.tsx
+│ │ │ │ ├── MessageList.tsx
+│ │ │ │ └── InputArea.tsx
+│ │ │ │
+│ │ │ ├── tasks/ # Task management components
+│ │ │ │ ├── TaskList.tsx
+│ │ │ │ ├── TaskCard.tsx
+│ │ │ │ └── TaskForm.tsx
+│ │ │ │
+│ │ │ ├── github/ # GitHub integration components
+│ │ │ │ ├── PullRequestList.tsx
+│ │ │ │ ├── IssueList.tsx
+│ │ │ │ └── CodeReviewBox.tsx
+│ │ │ │
+│ │ │ └── analytics/ # Analytics components
+│ │ │ ├── ProgressChart.tsx
+│ │ │ ├── TeamMetrics.tsx
+│ │ │ └── ReportView.tsx
+│ │ │
+│ │ ├── pages/ # Next.js pages
+│ │ │ ├── app.tsx # Main app component
+│ │ │ ├── index.tsx # Home page
+│ │ │ ├── dashboard.tsx # Main dashboard
+│ │ │ ├── tasks/ # Task management pages
+│ │ │ ├── chat.tsx # Chat interface page
+│ │ │ ├── github/ # GitHub integration pages
+│ │ │ └── analytics/ # Analytics pages
+│ │ │
+│ │ ├── services/ # API services
+│ │ │ ├── api.ts # API client setup
+│ │ │ ├── taskService.ts # Task API service
+│ │ │ ├── chatService.ts # Chat API service
+│ │ │ ├── githubService.ts # GitHub API service
+│ │ │ └── analyticsService.ts # Analytics API service
+│ │ │
+│ │ ├── utils/ # Utility functions
+│ │ │ ├── auth.ts # Authentication utilities
+│ │ │ ├── formatting.ts # Data formatting utilities
+│ │ │ └── websocket.ts # WebSocket connection
+│ │ │
+│ │ ├── styles/ # Global styles
+│ │ │ ├── globals.css # Global CSS
+│ │ │ └── theme.ts # Theme configuration
+│ │ │
+│ │ ├── contexts/ # React contexts
+│ │ │ ├── AuthContext.tsx # Authentication context
+│ │ │ └── AppContext.tsx # Application state context
+│ │ │
+│ │ └── types/ # TypeScript type definitions
+│ │ ├── task.ts # Task interfaces
+│ │ ├── user.ts # User interfaces
+│ │ ├── chat.ts # Chat interfaces
+│ │ └── github.ts # GitHub interfaces
+│ │
+│ ├── public/ # Static assets
+│ │ ├── images/ # Image assets
+│ │ └── favicon.ico # Favicon
+│ │
+│ ├── tests/ # Frontend tests
+│ │ ├── components/ # Component tests
+│ │ └── pages/ # Page tests
+│ │
+│ ├── .eslintrc.js # ESLint configuration
+│ ├── tailwind.config.js # Tailwind CSS configuration
+│ ├── tsconfig.json # TypeScript configuration
+│ ├── package.json # NPM dependencies
+│ ├── next.config.js # Next.js configuration
+│ └── Dockerfile # Frontend Docker configuration
+│
+├── docker-compose.yml # Docker Compose configuration
+├── .github/ # GitHub workflows
+│ └── workflows/
+│ ├── backend-ci.yml # Backend CI pipeline
+│ └── frontend-ci.yml # Frontend CI pipeline
+│
+├── scripts/ # Utility scripts
+│ ├── setup.sh # Setup script
+│ └── deploy.sh # Deployment script
+│
+├── .gitignore # Git ignore file
+├── README.md # Project documentation
+├── LICENSE.md # License information
+└── CONTRIBUTING.md # Contribution guidelines
+```
